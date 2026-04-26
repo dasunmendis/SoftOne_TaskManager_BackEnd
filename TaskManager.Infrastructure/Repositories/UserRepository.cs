@@ -16,7 +16,7 @@ namespace TaskManager.Infrastructure.Repositories
 
         public async Task<User?> GetByUsernameAsync(string username)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Username.ToLower() == username.ToLower());
+            return await _context.Users.Include(u => u.Role).FirstOrDefaultAsync(u => u.Username.ToLower() == username.ToLower());
         }
 
         public async Task AddAsync(User user)

@@ -13,5 +13,7 @@ namespace TaskManager.API.Services
         }
 
         public string? UserId => _httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
+        public string? Role => _httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.Role);
+        public bool IsAdmin => Role == "Admin" || Role == "Manager";
     }
 }

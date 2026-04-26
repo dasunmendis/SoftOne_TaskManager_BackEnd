@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TaskManager.Application.Interfaces;
 using TaskManager.Domain.Interfaces;
 
 namespace TaskManager.Application.Features.Tasks.Commands.UpdateTask
@@ -10,22 +11,26 @@ namespace TaskManager.Application.Features.Tasks.Commands.UpdateTask
     {
         private readonly ITaskRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ICurrentUserService _currentUserService;
 
-        public UpdateTaskCommandHandler(ITaskRepository repository, IUnitOfWork unitOfWork)
+        public UpdateTaskCommandHandler(ITaskRepository repository, IUnitOfWork unitOfWork, ICurrentUserService currentUserService)
         {
             _repository = repository;
             _unitOfWork = unitOfWork;
+            _currentUserService = currentUserService;
         }
 
         public async Task<Unit> Handle(UpdateTaskCommand request, CancellationToken cancellationToken)
         {
             var task = await _repository.GetByIdAsync(request.Id);
+            if (task == null) throw new Exception("Task not found.");
 
-            if (task == null)
+            var currentUserId = int.Parse(_currentUserService.UserId!);
+
+            // Authorization Check
+            if (!_currentUserService.IsAdmin && task.UserId != currentUserId)
             {
-                // In a real-world scenario, you might throw a custom NotFoundException here 
-                // which would be caught by a global exception handling middleware.
-                throw new Exception($"Task with ID {request.Id} not found.");
+                throw new UnauthorizedAccessException("You do not have permission to modify this task.");
             }
 
             // Update properties

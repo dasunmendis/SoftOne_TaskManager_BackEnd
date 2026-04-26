@@ -8,5 +8,8 @@ namespace TaskManager.Domain.Entities
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public bool IsCompleted { get; set; }
+
+        // Establishing ownership
+        public int UserId { get; set; }
     }
 }

@@ -24,8 +24,11 @@ namespace TaskManager.Application.Features.Auth.Commands.RegisterUser
 
             var user = new User
             {
+                FirstName = request.FirstName,
+                LastName = request.LastName,
                 Username = request.Username,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password)
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password),
+                RoleId = request.RoleId
             };
 
             await _userRepository.AddAsync(user);
