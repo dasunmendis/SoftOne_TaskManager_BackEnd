@@ -1,4 +1,4 @@
-# SoftOne Task Manager - Backend API
+# Task Manager - Backend API
 
 [![.NET](https://img.shields.io/badge/.NET-8.0-512bd4.svg)](https://dotnet.microsoft.com/download)
 [![Clean Architecture](https://img.shields.io/badge/Architecture-Clean-brightgreen.svg)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
