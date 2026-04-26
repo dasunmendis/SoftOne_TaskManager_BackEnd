@@ -12,10 +12,7 @@ namespace TaskManager.API.Controllers
     {
         private readonly IMediator _mediator;
 
-        public AuthController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
+        public AuthController(IMediator mediator) => _mediator = mediator;
 
         [AllowAnonymous] // No auth required to register
         [HttpPost("register")]
@@ -36,13 +33,12 @@ namespace TaskManager.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginQuery query)
         {
-            var isValidUser = await _mediator.Send(query);
+            var userDto = await _mediator.Send(query);
 
-            if (isValidUser)
+            if (userDto != null)
             {
-                // Since we aren't using JWT, we just return a success message.
-                // The frontend will encode the username:password and send it in the Basic Auth header for future requests.
-                return Ok(new { Message = "Login successful" });
+                // Return the user details so the frontend can display them
+                return Ok(userDto);
             }
 
             return Unauthorized(new { Error = "Invalid username or password" });

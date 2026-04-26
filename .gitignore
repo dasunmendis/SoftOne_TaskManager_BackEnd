@@ -304,3 +304,17 @@
 /TaskManager.Domain/obj/TaskManager.Domain.csproj.nuget.dgspec.json
 /TaskManager.Domain/obj/TaskManager.Domain.csproj.nuget.g.props
 /TaskManager.Domain/obj/TaskManager.Domain.csproj.nuget.g.targets
+/.vs/TaskManager.slnx/config/applicationhost.config
+/.vs/TaskManager.slnx/DesignTimeBuild/.dtbcache.v2
+/.vs/TaskManager.slnx/FileContentIndex/340ea205-1018-4999-9f0c-d7aea1166ae9.vsidx
+/.vs/TaskManager.slnx/FileContentIndex/590f2273-2ed9-40e3-a467-ca1bc771bec6.vsidx
+/.vs/TaskManager.slnx/FileContentIndex/74751a53-92a1-40e2-a0be-2b2cd306a5ab.vsidx
+/.vs/TaskManager.slnx/FileContentIndex/8ecb33ed-8451-4be5-8506-d5b3c247cf15.vsidx
+/.vs/TaskManager.slnx/FileContentIndex/e4ddcc4a-e2a5-42a5-ac58-fa1e25f2afb3.vsidx
+/.vs/TaskManager.slnx/v18/.suo
+/.vs/TaskManager.slnx/v18/DocumentLayout.backup.json
+/.vs/TaskManager.slnx/v18/DocumentLayout.json
+/TaskManager.API/obj/Debug/net10.0/TaskManager.API.sourcelink.json
+/TaskManager.Domain/obj/Debug/net10.0/TaskManager.Domain.sourcelink.json
+/TaskManager.Application/obj/Debug/net10.0/TaskManager.Application.sourcelink.json
+/TaskManager.Infrastructure/obj/Debug/net10.0/TaskManager.Infrastructure.sourcelink.json
